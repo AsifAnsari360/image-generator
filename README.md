@@ -8,12 +8,12 @@
 
 ## Certification Badges
 
-![AWS Cloud Practitioner](./images/Cloud%20Practitioner.png)
-![Solutions Architect Associate](./images/Solutions%20Architect%20Associate.png)
-![Developer Associate](./images/Developer%20Associate.png)
-![SysOps Administrator Associate](./images/SysOps%20Administrator.png)
-![Solutions Architect Professional](./images/Solutions%20Architect%20Professional.png)
-![DevOps Engineer Professional](./images/DevOps%20Engineer%20Professional.png)
+![Image](https://github.com/user-attachments/assets/2b0dccf2-22b0-44cf-8a65-e8942af66c24)
+![Image](https://github.com/user-attachments/assets/bca3525c-5e0c-4c9f-9b6b-1f7db4c9a525)
+![Image](https://github.com/user-attachments/assets/d4ea3dae-c43c-4587-b607-2ea3c1510552)
+![Image](https://github.com/user-attachments/assets/9f0354ae-88f6-4d0b-ad15-f09c8f4eacc2)
+![Image](https://github.com/user-attachments/assets/320df3c8-6d28-4cf1-bbe6-5e48bb16af34)
+![Image](https://github.com/user-attachments/assets/f636b242-1ed6-4978-a3c6-6d93de7dcdf9)
 
 ---
 
