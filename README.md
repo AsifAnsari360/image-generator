@@ -18,6 +18,8 @@ Unlike traditional on-premises data centers, where you must predict resource nee
 
 ---
 
+![Image](https://github.com/user-attachments/assets/ce44f414-500a-4550-a80f-c31351956952)
+
 ## Objectives
 
 By using these notes, you will:
