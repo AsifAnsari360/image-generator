@@ -8,6 +8,8 @@ Most modern IT systems are based on the client-server model. In AWS:
 
 An understanding of these components forms the groundwork for building and scaling applications in the cloud.
 
+![Image](https://github.com/user-attachments/assets/ce44f414-500a-4550-a80f-c31351956952)
+
 ### 2. AWS Foundational Principle: Pay Only for What You Use
 
 Unlike traditional on-premises data centers, where you must predict resource needs and often over-purchase hardware, AWS uses a flexible pay-as-you-go pricing model:
@@ -17,8 +19,6 @@ Unlike traditional on-premises data centers, where you must predict resource nee
 - Better cost efficiency and scalability for your business
 
 ---
-
-![Image](https://github.com/user-attachments/assets/ce44f414-500a-4550-a80f-c31351956952)
 
 ## Objectives
 
