@@ -1,20 +1,35 @@
-<img src="https://github.com/user-attachments/assets/6051dd9b-c21e-480f-b53b-d10631453ab2" alt="AWS Logo" width="140"/>
+## Key Concepts
 
-# AWS Notes
+### 1. The Fundamental Cloud Compute Model
 
-*Your comprehensive study companion for AWS Certifications*
+Most modern IT systems are based on the client-server model. In AWS:
+- **Clients** request computing resources or data
+- **Servers** (implemented as EC2 instances or other managed services) process these requests and respond accordingly
+
+An understanding of these components forms the groundwork for building and scaling applications in the cloud.
+
+### 2. AWS Foundational Principle: Pay Only for What You Use
+
+Unlike traditional on-premises data centers, where you must predict resource needs and often over-purchase hardware, AWS uses a flexible pay-as-you-go pricing model:
+
+- No need to pre-allocate (or pay for) unused capacity
+- Instantly provision resources when needed and terminate them as demand drops
+- Better cost efficiency and scalability for your business
 
 ---
 
-## Certification Badges
+## Objectives
 
-<img src="https://github.com/user-attachments/assets/2b0dccf2-22b0-44cf-8a65-e8942af66c24" alt="Cloud Practitioner" width="55"/>
-<img src="https://github.com/user-attachments/assets/bca3525c-5e0c-4c9f-9b6b-1f7db4c9a525" alt="Solutions Architect Associate" width="55"/>
-<img src="https://github.com/user-attachments/assets/d4ea3dae-c43c-4587-b607-2ea3c1510552" alt="Developer Associate" width="55"/>
-<img src="https://github.com/user-attachments/assets/9f0354ae-88f6-4d0b-ad15-f09c8f4eacc2" alt="SysOps Administrator Associate" width="55"/>
-<img src="https://github.com/user-attachments/assets/320df3c8-6d28-4cf1-bbe6-5e48bb16af34" alt="Solutions Architect Professional" width="55"/>
-<img src="https://github.com/user-attachments/assets/f636b242-1ed6-4978-a3c6-6d93de7dcdf9" alt="DevOps Engineer Professional" width="55"/>
+By using these notes, you will:
+
+- Grasp the basic architecture and pricing models of AWS
+- Understand why AWS is valuable for businesses of all sizes
+- Be better prepared for AWS certification exams, such as AWS Cloud Practitioner
 
 ---
 
-**Author:** Asif Ansari
+## How To Use
+
+1. Review these notes before study sessions or exams for a quick refresher.
+2. Share with your network to help others in their AWS learning journey.
+3. Use these as a base for building deeper knowledge in AWS topics.
