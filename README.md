@@ -1,115 +1,107 @@
-## Elastic Load Balancing (ELB)
+# AWS Global Infrastructure and Resource Provisioning
 
-**Elastic Load Balancing** automatically distributes incoming application traffic across multiple resources, such as Amazon EC2 instances.
-
-- Acts as a single point of contact for all incoming web traffic to your Auto Scaling group.
-- As you add or remove EC2 instances, the ELB routes requests across all resources, balancing the workload.
-- Ensures no single instance is overwhelmed, improving fault tolerance and availability.
-
-**Elastic Load Balancing** and **EC2 Auto Scaling** work together to maintain application performance and availability.
-
-![Image](https://github.com/user-attachments/assets/10d4df29-01cf-488a-9c55-9df6a05def49)
-
-![Image](https://github.com/user-attachments/assets/f5727ba6-f94f-485e-b30e-a4ee5a64dab7)
+This document provides an overview of AWS global infrastructure components, considerations for selecting a Region, and various methods for provisioning and managing AWS resources.
 
 ---
 
-## Messaging and Queuing
+## AWS Global Infrastructure
 
-In microservices and distributed architectures, reliable communication between components is crucial. AWS provides two core services for messaging and queuing:
+### AWS Regions
 
-![Image](https://github.com/user-attachments/assets/632d6894-5639-41d4-916c-eee20819e841)
+AWS Regions are physical geographic areas that host two or more Availability Zones. When choosing a Region for your services, applications, and data, consider the following business factors:
 
-![Image](https://github.com/user-attachments/assets/ff33c4c6-b4d6-463b-9373-4c2cf7d02344)
+1. **Compliance with Data Governance and Legal Requirements**  
+   Choose a Region based on where your data must reside to meet compliance or legal requirements (e.g., selecting the London Region for UK-specific data residency).
 
-### Amazon Simple Notification Service (SNS)
+2. **Proximity to Your Customers**  
+   Selecting a Region close to your users reduces latency and speeds up content delivery (e.g., use the Singapore Region for customers in Singapore).
 
-- **Amazon SNS** is a flexible publish/subscribe (pub/sub) messaging service.
-- Publishers send messages to "topics." Subscribers receive those messages.
-- Subscribers can be HTTP endpoints, email addresses, AWS Lambda functions, and more.
-- Example: Like a coffee shop cashier passing orders (messages) to a barista (subscriber).
+3. **Available Services Within a Region**  
+   Not every Region has all AWS services. Some features may only be available in specific Regions (e.g., Amazon Braket for quantum computing).
 
-### Amazon Simple Queue Service (SQS)
-
-- **Amazon SQS** is a fully managed message queuing service.
-- Decouples sending, storing, and receiving messages between software components.
-- An application sends messages to a queue; another retrieves, processes, and deletes them.
-- Prevents message loss and enables fault-tolerant processing.
+4. **Pricing**  
+   Costs can vary between Regions due to differences in taxes and underlying infrastructure. Evaluate cost implications before selecting a Region.
 
 ---
 
-## Serverless Computing
+### Availability Zones
 
-Traditionally, running applications on EC2 involves provisioning instances, uploading your code, and managing the infrastructure:
+![Image](https://github.com/user-attachments/assets/d5bbf097-0f09-4489-9dbf-ee48fe66cb7a)
 
-1. Provision instances (virtual servers).
-2. Upload your code.
-3. Continue to manage the instances while your application runs.
+An **Availability Zone** (AZ) is a single data center or a group of data centers within a Region, placed tens of miles apart. AZs provide low-latency networking while also reducing the risk that disasters will affect multiple zones.
 
-![Image](https://github.com/user-attachments/assets/3605eaf5-6393-46a8-9353-d3e01aa5c264)
+![Image](https://github.com/user-attachments/assets/76e0f9ee-53b2-4f23-a2d0-7831cdabcd74)
 
-### AWS Lambda
+![Image](https://github.com/user-attachments/assets/db023ebb-4c23-4b13-ade2-d5aed95b1adb)
 
-- **AWS Lambda** enables you to run code without provisioning or managing servers.
-- Pay only for compute time consumed; billing is metered in milliseconds.
-- Upload your code, define an event source (trigger), and Lambda runs your code automatically when triggered.
-- Example use case: Automatically resize images when uploaded to the cloud.
-
-![Image](https://github.com/user-attachments/assets/60f85a62-c641-4d8e-a6ab-09e9ebb2861a)
-
-**Lambda Steps:**
-1. Upload your code to Lambda.
-2. Set your code to trigger from event sources (other AWS services, HTTP endpoints, mobile apps, etc.).
-3. Lambda runs your code only when triggered.
-4. Pay only for the compute time when code executes.
+![Image](https://github.com/user-attachments/assets/07c0f37b-20b5-4ad2-bc2b-960d3d38b3e2)
 
 ---
 
-## Containers
+### Edge Locations
 
-Containers provide a standard way to package your application's code and dependencies into a single object. Containers are ideal for secure, reliable, and scalable application deployments.
+**Edge Locations** are sites where **Amazon CloudFront** caches content closer to your users, improving speed and reducing latency.
 
-![Image](https://github.com/user-attachments/assets/05084129-a602-4425-a477-15fccddde766)
+- **Origin:** The original storage location (e.g., data in Brazil).
+- **Edge location:** Cached copies of content are stored near the customer (e.g., edge location in China).
+- **Customer:** Requests are fulfilled from the nearest edge location, speeding up delivery.
 
-![Image](https://github.com/user-attachments/assets/845bcc3e-8ff9-4c94-bdbc-4695d335747b)
+![Image](https://github.com/user-attachments/assets/3738f453-c088-45b4-a18a-362656337568)
 
-### Amazon Elastic Container Service (ECS)
+---
 
-- **Amazon ECS** is a highly scalable and high-performance container management service.
-- Supports Docker containers (build, test, deploy apps quickly).
-- Use API calls to launch and stop Docker-enabled applications.
+## Ways to Provision AWS Resources
 
-### Amazon Elastic Kubernetes Service (EKS)
+### AWS Management Console
 
-- **Amazon EKS** is a fully managed Kubernetes service for running containers at scale.
-- Kubernetes is open-source software for deploying and managing containerized applications.
-- AWS works closely with the Kubernetes community, ensuring easy adoption of new features.
+- A web-based interface for accessing and managing AWS services.
+- Offers wizards, automated workflows, and a mobile app for resource monitoring and management.
+- Multiple user identities can stay logged in on the mobile app.
 
-### AWS Fargate
+### AWS Command Line Interface (AWS CLI)
 
-- **AWS Fargate** is a serverless compute engine for containers.
-- Works with both ECS and EKS.
-- You do not provision or manage any servers; simply specify and run your containers.
-- AWS Fargate manages all server infrastructure, and you only pay for resources your containers use.
+- Control AWS services using commands in a terminal on Windows, macOS, and Linux.
+- Automate AWS actions and workflows using shell scripts.
+- Useful for launching resources, managing Auto Scaling groups, and more.
+
+### AWS Software Development Kits (SDKs)
+
+- Programmatically access AWS services using APIs in your preferred programming language (e.g., Java, .NET, Python, C++).
+- SDKs are supported for various languages and come with extensive documentation and example code.
+
+---
+
+## AWS Resource Deployment Services
+
+### AWS Elastic Beanstalk
+
+- Deploy and manage applications by simply uploading code and configuration.
+- Automatically handles provisioning, capacity adjustments, load balancing, automatic scaling, and health monitoring.
+
+### AWS CloudFormation
+
+- Provision AWS infrastructure as code.
+- Define resources in configuration files (templates) and automate resource deployment.
+- Supports safe, repeatable, and version-controlled infrastructure deployment; rolls back changes automatically if errors are detected.
 
 ---
 
 ## Summary
 
-- **Amazon EC2 Auto Scaling**: Automatically adjust EC2 resources based on demand to optimize cost and performance.
-- **Elastic Load Balancing**: Automatically distribute incoming traffic to maintain healthy, balanced workloads.
-- **Amazon SNS & SQS**: Decouple microservices and distributed systems using messaging and queues.
-- **AWS Lambda**: Run code without servers; pay only for execution time.
-- **Containers (ECS, EKS, Fargate)**: Run and scale containerized applications with or without managing underlying servers.
+- **AWS Regions and Availability Zones:** Choose based on compliance, proximity, available services, and pricing.
+- **Edge Locations and Amazon CloudFront:** Deliver content efficiently to global users via caching.
+- **AWS Management Console, AWS CLI, and SDKs:** Multiple ways to interact with and provision AWS services.
+- **AWS Elastic Beanstalk:** Simplified application deployment and management.
+- **AWS CloudFormation:** Infrastructure as code for repeatable, safe, and automated provisioning.
 
 ---
 
-**For more information, visit:**
-- [Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html)
-- [Elastic Load Balancing](https://aws.amazon.com/elasticloadbalancing/)
-- [Amazon SNS](https://aws.amazon.com/sns/)
-- [Amazon SQS](https://aws.amazon.com/sqs/)
-- [AWS Lambda](https://aws.amazon.com/lambda/)
-- [Amazon ECS](https://aws.amazon.com/ecs/)
-- [Amazon EKS](https://aws.amazon.com/eks/)
-- [AWS Fargate](https://aws.amazon.com/fargate/)
+**For more information:**
+
+- [AWS Global Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/)
+- [Amazon CloudFront](https://aws.amazon.com/cloudfront/)
+- [AWS Management Console](https://aws.amazon.com/console/)
+- [AWS CLI](https://aws.amazon.com/cli/)
+- [AWS SDKs](https://aws.amazon.com/tools/)
+- [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/)
+- [AWS CloudFormation](https://aws.amazon.com/cloudformation/)
