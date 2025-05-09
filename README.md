@@ -50,6 +50,12 @@ This document provides an overview of core AWS networking concepts, key VPC comp
 
 - **Custom Rules:** You can configure custom rules for both ACLs and security groups to allow or deny specific inbound/outbound traffic.
 
+### Stateful
+![Image](https://github.com/user-attachments/assets/65eacfe0-2c8a-4871-b078-cd1411c0a185)
+
+### Stateless
+![Image](https://github.com/user-attachments/assets/535beba9-1b46-45b9-b74a-449dd518232a)
+
 ---
 
 ## VPC Component Usage Recap
